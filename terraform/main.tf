@@ -23,9 +23,3 @@ module "s3" {
   # Pass the project_name variable to the module
   s3_bucket = "${var.project_name}-bucket"
 }
-
-module "lambda" {
-  source                    = "./modules/lambda"
-  table_name                = module.dynamodb.table_name
-  aws_region                = var.region
-}
