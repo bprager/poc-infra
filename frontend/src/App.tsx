@@ -1,27 +1,27 @@
-import { useState } from "react";
 import androidLogo from "/android.svg";
 import "./App.css";
+import { Button, Card } from "react-bootstrap";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div>
-        <img src={androidLogo} className="logo" alt="Vite logo" />
-      </div>
+      <div></div>
       <h1>Minimal POC deployment</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Card className="mb-3" style={{ color: "#000" }}>
+        <Card.Img
+          class="card-img-top"
+          src={androidLogo}
+          style={{ width: "10%" }}
+        />
+        <Card.Body>
+          <Card.Title>React Bootstrap</Card.Title>
+          <Card.Text>
+            This is a minimal POC deployment of a React App with React Bootstrap
+            and Typescript.
+          </Card.Text>
+        </Card.Body>
+        <Button variant="primary">Go somewhere</Button>
+      </Card>
     </>
   );
 }
