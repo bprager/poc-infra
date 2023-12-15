@@ -84,6 +84,11 @@ resource "aws_s3_object" "upload_object" {
   content_type = length(split(".", each.value)) > 1 ? lookup({
     "html" = "text/html",
     "css"  = "text/css",
-    "js"   = "application/javascript"
+    "js"   = "application/javascript",
+    "png"  = "image/png",
+    "jpg"  = "image/jpeg",
+    "jpeg" = "image/jpeg",
+    "gif"  = "image/gif",
+    "svg"  = "image/svg+xml"
   }, split(".", each.value)[length(split(".", each.value)) - 1], "binary/octet-stream") : "binary/octet-stream"
 }
