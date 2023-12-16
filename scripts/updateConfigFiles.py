@@ -23,16 +23,17 @@ def main():
     logging.debug(f"terraform outputs: {results}")
     # creating the config file for the frontend
     config = {}
-    config["API_URL"] = results["api_gateway_rest_api_url"]["value"]
-    config["ClientId"] = results["cognito_user_pool_client_id"]["value"]
-    config["UserPoolId"] = results["cognito_user_pool_id"]["value"]
-    config["MethodPath"] = results["api_method_resource_endpoint"]["value"]
+    config["API_URL"] = results["api_endpoint"]["value"]
+    # config["ClientId"] = results["cognito_user_pool_client_id"]["value"]
+    # config["UserPoolId"] = results["cognito_user_pool_id"]["value"]
+    config["MethodPath"] = results["ressource_endpoint"]["value"]
     logging.debug(f"config: {config}")
     # write the config file
     relpath = os.path.relpath(FRONTEND_DIR, os.getcwd())
     with open(f"{relpath}/src/config.json", "w") as outfile:
         logging.debug(f"writing {relpath}/src/config.json: {config}")
         outfile.write(json.dumps(config, indent=4))
+    return
     # creating the config file for lambda functions
     config = {}
     config["TableName"] = results["dynamodb_table_name"]["value"]

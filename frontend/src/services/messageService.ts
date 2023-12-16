@@ -1,8 +1,8 @@
 // Path: frontend/src/services/messageService.ts
 import config from "../config.json";
-import { getAuthToken } from "./cognitoService"; // Adjust the import based on your actual cognito service
+// import { getAuthToken } from "./cognitoService"; // Adjust the import based on your actual cognito service
 
-interface MessageData {
+export interface MessageData {
   sessionId: string;
   timeStamp: string;
   language: string;
@@ -12,14 +12,14 @@ interface MessageData {
 
 const sendMessage = async (messageData: MessageData): Promise<void> => {
   const apiEndpoint = config.API_URL + config.MethodPath;
-  const authToken = await getAuthToken();
+  // const authToken = await getAuthToken();
 
   try {
     const response = await fetch(apiEndpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${authToken}`,
+        // Authorization: `Bearer ${authToken}`,
         // Include other headers as required
       },
       body: JSON.stringify(messageData),

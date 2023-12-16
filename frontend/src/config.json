@@ -1,4 +1,4 @@
 {
-    "API_URL": "https://4xkm4snnq2.execute-api.us-west-1.amazonaws.com/v1",
+    "API_URL": "https://f52tuxsf7c.execute-api.us-west-1.amazonaws.com/v1",
     "MethodPath": "/hello"
 }
